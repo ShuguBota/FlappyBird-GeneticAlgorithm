@@ -29,8 +29,8 @@ def main():
 
         # Check if all players are dead
         if population.extinct():
-            pass
-
+            config.pipes.clear() # Reseting the game
+            population.natural_selection()
 
         # Draw ground
         config.ground.draw(config.window)
