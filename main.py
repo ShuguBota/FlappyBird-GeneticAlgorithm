@@ -31,6 +31,9 @@ def main():
         if population.extinct():
             config.pipes.clear() # Reseting the game
             population.natural_selection()
+        else:
+            # Draw population
+            population.update_live_players()
 
         # Draw ground
         config.ground.draw(config.window)
@@ -47,9 +50,6 @@ def main():
                 config.pipes.remove(pipe)
 
         pipes_spawn_time -= 1
-
-        # Draw population
-        population.update_live_players()
 
         clock.tick(60)
         pygame.display.flip()

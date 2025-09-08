@@ -1,4 +1,4 @@
-import nodes
+import node
 import connection
 import random
 
@@ -13,15 +13,15 @@ class Brain:
         if not clone:
             # Create input nodes
             for i in range(0, self.inputs):
-                self.nodes.append(nodes.Node(i))
+                self.nodes.append(node.Node(i))
                 self.nodes[i].layer = 0
 
             # Create bias node
-            self.nodes.append(nodes.Node(3))
+            self.nodes.append(node.Node(3))
             self.nodes[3].layer = 0
 
             # Create the output node
-            self.nodes.append(nodes.Node(4))
+            self.nodes.append(node.Node(4))
             self.nodes[4].layer = 1
 
             # Create connections
@@ -64,6 +64,7 @@ class Brain:
     def clone(self):
         clone = Brain(self.inputs, True)
 
+        # Clone all nodes
         for node in self.nodes:
             clone.nodes.append(node.clone())
 
@@ -79,7 +80,6 @@ class Brain:
         for node in self.nodes:
             if node.id == id:
                 return node
-        return None
     
     def mutate(self):
         if random.uniform(0, 1) < 0.8:

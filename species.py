@@ -21,7 +21,9 @@ class Species:
         total_weight_difference = 0
 
         for i in range(0, len(brain_1.connections)):
-            total_weight_difference += abs(brain_1.connections[i].weight - brain_2.connections[i].weight)
+            for j in range(0, len(brain_2.connections)):
+                if i == j:
+                    total_weight_difference += abs(brain_1.connections[i].weight - brain_2.connections[j].weight)
 
         return total_weight_difference
     

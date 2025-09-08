@@ -89,7 +89,7 @@ class Player:
     def think(self):
         self.decission = self.brain.feed_forward(self.vision)
 
-        if self.decission > 0.8:
+        if self.decission > 0.73: # TODO: Understand why the heck when it was 0.8 it didn't work
             self.bird_flap()
 
     def calculate_fitness(self):

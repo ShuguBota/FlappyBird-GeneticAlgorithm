@@ -14,6 +14,7 @@ class Connection:
             # Make sure it stays within bounds
             if self.weight > 1:
                 self.weight = 1
+                
             if self.weight < -1:
                 self.weight = -1
 
